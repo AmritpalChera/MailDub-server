@@ -28,6 +28,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     cancel_url: `${DOMAIN}?canceled=true`,
   });
 
-  res.redirect(303, session.url);
+  res.redirect(303, session.url!);
 }
 
