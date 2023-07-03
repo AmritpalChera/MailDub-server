@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/messageCountReset",
+      "schedule": "0 * * * *"
+    },
+    {
+      "path": "/api/cron/thirdPartyUsage",
+      "schedule": "0 3 * * *"
+    }
+]
+}
