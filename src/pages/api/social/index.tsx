@@ -120,7 +120,6 @@ const getTemplate = (socialMedia: string, emailContent: string) => {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  console.log('I AM RUNNING!!');
   await runMiddleware(req, res);
   let userId: string;
   try {
@@ -134,6 +133,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     res.json({ text: 'Invalid Authorization. Please login.' });
     return;
   }
+
+  console.log('userId is: ', userId);
   // check if user is customer, otherwise return subscription text.
   const customerData = await supabaseInternal.from('customers').select().eq('userId', userId).single();
   if (customerData.error) {
