@@ -134,14 +134,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return;
   }
 
-  console.log('userId is: ', userId);
-  // check if user is customer, otherwise return subscription text.
-  const customerData = await supabaseInternal.from('customers').select().eq('userId', userId).single();
-  if (customerData.error) {
-    console.log(customerData.error);
-    res.json({ text: 'Visit MailDub.Club to subscribe to the service' });
-    return;
+
+  const analytics = await supabaseInternal.from('analytics').select().eq('userId', userId).single();
+  if (!analytics.data) {
+    await supabaseInternal.from('analytics').insert({ userId: userId });
+  } else if (analytics.data && analytics.data.monthlyMessages > 10) {
+    // check if user is customer, otherwise return subscription text.
+    const customerData = await supabaseInternal.from('customers').select().eq('userId', userId).single();
+    if (customerData.error) {
+      console.log(customerData.error);
+      res.json({ text: 'Visit MailDub.Club to subscribe to the service' });
+      return;
+    }
   }
+
+  
 
   if (req.method === 'POST') {
     const result = bodySchema.safeParse(req.body);
