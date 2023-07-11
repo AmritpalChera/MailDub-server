@@ -43,18 +43,14 @@ const getInstagramTemplate = (emailContent: string) => {
     You are an Instagram expert. You write catchy content for Instagram.
 
     Rules:
-      1. Text must be short
+      1. Keep it concise and short
       2. Only keep key details
-    
-    Important Tips:
-      2. Use a personal tone.
-      3. Use clear calls to actions
     
     TODO:
       1. List up to 5 important points
       2. Make it appealing
   `;
-  const formattedContent = `Write me an Instagram post from the given email. List up to 5 key points. Keep it short and concise! \n\n Email: \n\n${emailContent}\n\nShort answer:`;
+  const formattedContent = `Write me an Instagram post from the given email. List points. Keep it short and concise! \n\n Email: \n\n${emailContent}\n\nShort answer:`;
   const chatData: any = [
     { role: 'system', content: systemTemplate},
     { role: 'user', content: formattedContent }
