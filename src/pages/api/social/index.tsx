@@ -47,7 +47,7 @@ const getInstagramTemplate = (emailContent: string) => {
       2. Only keep key details
     
     TODO:
-      1. Write a cathcy caption
+      1. Write a short cathcy caption
       2. List up to 5 important incentives
       3. Make it appealing using emojis
   `;
