@@ -53,12 +53,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     res.json({ url: '' });
     return;
   }
-  // check if user is customer, otherwise return subscription text.
-  const customerData = await supabaseInternal.from('customers').select().eq('userId', userId).single();
-  if (customerData.error) {
-    console.log(customerData.error);
-    res.json({ url: '' });
-    return;
+  
+  const analytics = await supabaseInternal.from('analytics').select().eq('userId', userId).single();
+  if (!analytics.data) {
+    await supabaseInternal.from('analytics').insert({ userId: userId });
+  } else if (analytics.data && analytics.data.monthlyMessages > 100) {
+    // check if user is customer, otherwise return subscription text.
+    const customerData = await supabaseInternal.from('customers').select().eq('userId', userId).single();
+    if (customerData.error) {
+      console.log(customerData.error);
+      res.json({ url: '' });
+      return;
+    }
   }
 
   if (req.method === 'POST') {
@@ -87,6 +93,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       await wait(5000);
       const generatedimage = await leapGet(basePromptOutput, generateImageData.id);
       const uri = generatedimage?.images[0]?.uri;
+      await supabaseInternal.from('analytics').upsert({ userId: userId, monthlyMessages: (analytics.data?.monthlyMessages || 0) + 1 });
       res.json({ url: uri });
 
     } catch (e) {
