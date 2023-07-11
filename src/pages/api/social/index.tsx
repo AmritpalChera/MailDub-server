@@ -174,7 +174,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       console.log(e);
       res.status(200).json({ error: 'Could not fetch info' });
     }
-
+    await supabaseInternal.from('analytics').upsert({monthlyMessages: (analytics.data?.monthlyMessages || 0) + 1})
   } else {
     res.status(400).json({ error: 'Invalid request' });
   }
