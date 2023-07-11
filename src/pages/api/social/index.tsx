@@ -70,18 +70,17 @@ const getFacebookTemplate = (emailContent: string) => {
 
     Rules:
       1. Text must be short
-      2. Extract key points
+      2. Only keep key details
     
     Important Tips:
       2. Use a personal tone.
       3. Use clear calls to actions
     
     TODO:
-      1. Filter out important details from the email
-      2. Write up to 5 key points
-      3. Make copy visually appealing
+      1. Write up to 5 key points
+      2. Make copy visually appealing
   `;
-  const formattedContent = `Write me an Facebook post from the given email with up to 5 key points. Keep length less than 400 characters. \n\n Email: \n\n${emailContent}\n\nShort answer:`;
+  const formattedContent = `Write me an Facebook post from the given email with up to 5 key points. Keep it to point! \n\n Email: \n\n${emailContent}\n\nShort answer:`;
   const chatData: any = [
     { role: 'system', content: systemTemplate},
     { role: 'user', content: formattedContent }
