@@ -54,7 +54,8 @@ const getInstagramTemplate = (emailContent: string) => {
     
     TODO:
       1. Filter out important details from the email
-      2. Write good content
+      2. Write up to 5 key points
+      3. Make it appealing
   `;
   const formattedContent = `Write me an Instagram post from the given email. Write short sentences. Keep length less than 400 characters. \n\n Email: \n\n${emailContent}\n\nShort answer:`;
   const chatData: any = [
