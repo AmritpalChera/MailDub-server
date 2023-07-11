@@ -24,6 +24,7 @@ const getTwitterTemplate = (emailContent: string) => {
 
     Rules of Twitter:
       1. Total characters must be less than 280
+      2. Extract key points
     
     Important Tips:
       1. Tweets are conversational
@@ -45,6 +46,7 @@ const getInstagramTemplate = (emailContent: string) => {
     Rules:
       1. Text must appeal to younger audience
       2. Text must be short
+      2. Extract key points
     
     Important Tips:
       1. Write a compelling caption
@@ -69,6 +71,7 @@ const getFacebookTemplate = (emailContent: string) => {
 
     Rules:
       1. Text must be short
+      2. Extract key points
     
     Important Tips:
       1. Write a compelling caption
@@ -93,6 +96,7 @@ const getLinkedInTemplate = (emailContent: string) => {
 
     Rules:
       1. Text must be short
+      2. Extract key points
     
     Important Tips:
       1. Write a compelling caption
