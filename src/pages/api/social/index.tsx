@@ -57,7 +57,7 @@ const getInstagramTemplate = (emailContent: string) => {
       2. List up to 5 key points
       3. Make it appealing
   `;
-  const formattedContent = `Write me an Instagram post from the given email. Write short sentences. Keep length less than 400 characters. \n\n Email: \n\n${emailContent}\n\nShort answer:`;
+  const formattedContent = `Write me an Instagram post from the given email with up to 5 key points. Keep it short and to point! \n\n Email: \n\n${emailContent}\n\nShort answer:`;
   const chatData: any = [
     { role: 'system', content: systemTemplate},
     { role: 'user', content: formattedContent }
