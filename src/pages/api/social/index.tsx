@@ -48,10 +48,10 @@ const getInstagramTemplate = (emailContent: string) => {
     
     TODO:
       1. Write a cathcy caption
-      2. List up to 5 important points
-      3. Make it appealing
+      2. List up to 5 important incentives
+      3. Make it appealing using emojis
   `;
-  const formattedContent = `Write me an Instagram post from the given email with up to 5 key points. Keep it short and concise! \n\n Email: \n\n${emailContent}\n\nShort answer:`;
+  const formattedContent = `Write me an Instagram post from the given email with up to 5 key incentives. Keep it short and concise! \n\n Email: \n\n${emailContent}\n\nShort answer:`;
   const chatData: any = [
     { role: 'system', content: systemTemplate},
     { role: 'user', content: formattedContent }
