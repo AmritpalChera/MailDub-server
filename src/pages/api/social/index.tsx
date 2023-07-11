@@ -24,7 +24,6 @@ const getTwitterTemplate = (emailContent: string) => {
 
     Rules of Twitter:
       1. Total characters must be less than 280
-      2. Extract key points
     
     Important Tips:
       1. Tweets are conversational
@@ -82,7 +81,7 @@ const getFacebookTemplate = (emailContent: string) => {
       1. Filter out important details from the email
       2. Write good content
   `;
-  const formattedContent = `Write me an Facebook post from the given email. Write short sentences. Keep length less than 400 characters. \n\n Email: \n\n${emailContent}\n\nShort answer:`;
+  const formattedContent = `Write me an Facebook post from the given email with up to 5 key points. Keep length less than 400 characters. \n\n Email: \n\n${emailContent}\n\nShort answer:`;
   const chatData: any = [
     { role: 'system', content: systemTemplate},
     { role: 'user', content: formattedContent }
