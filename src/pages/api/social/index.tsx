@@ -45,10 +45,11 @@ const getInstagramTemplate = (emailContent: string) => {
     Rules:
       1. Keep it concise and short
       2. Only keep key details
+      3. Use a list format with emojis
     
     TODO:
       1. Write a short cathcy caption
-      2. List up to 5 important incentives
+      2. Concisely list up to 5 important incentives
       3. Make it appealing using emojis
   `;
   const formattedContent = `Write me an Instagram post from the given email with up to 5 key incentives. Keep it short and concise! \n\n Email: \n\n${emailContent}\n\nShort answer:`;
