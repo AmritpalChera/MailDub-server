@@ -127,7 +127,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const analytics = await supabaseInternal.from('analytics').select().eq('userId', userId).single();
   if (!analytics.data) {
     await supabaseInternal.from('analytics').insert({ userId: userId });
-  } else if (analytics.data && analytics.data.monthlyMessages > 10) {
+  } else if (analytics.data && analytics.data.monthlyMessages > 100) {
     // check if user is customer, otherwise return subscription text.
     const customerData = await supabaseInternal.from('customers').select().eq('userId', userId).single();
     if (customerData.error) {
