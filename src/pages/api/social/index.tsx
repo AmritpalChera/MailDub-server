@@ -73,13 +73,13 @@ const getFacebookTemplate = (emailContent: string) => {
       2. Extract key points
     
     Important Tips:
-      1. Write a compelling caption
       2. Use a personal tone.
       3. Use clear calls to actions
     
     TODO:
       1. Filter out important details from the email
-      2. Write good content
+      2. Write up to 5 key points
+      3. Make copy visually appealing
   `;
   const formattedContent = `Write me an Facebook post from the given email with up to 5 key points. Keep length less than 400 characters. \n\n Email: \n\n${emailContent}\n\nShort answer:`;
   const chatData: any = [
