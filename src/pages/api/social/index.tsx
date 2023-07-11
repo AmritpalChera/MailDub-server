@@ -60,19 +60,10 @@ const getInstagramTemplate = (emailContent: string) => {
 
 const getFacebookTemplate = (emailContent: string) => {
   const systemTemplate = `
-    You are an Facebook expert. You write catchy content for Facebook.
-
-    Rules:
-      1. Text must be short
-      2. Only keep key details
-    
-    Important Tips:
-      2. Use a personal tone.
-      3. Use clear calls to actions
-    
-    TODO:
-      1. Write up to 5 key points
-      2. Make copy visually appealing
+    You are a marketing content expert. 
+    You make short and concise posts for social media.
+    You make visually appealing content for facebook.
+    You list out important points in the post
   `;
   const formattedContent = `Write me an Facebook post from the given email with up to 5 key points. Keep it to point! \n\n Email: \n\n${emailContent}\n\nShort answer:`;
   const chatData: any = [
